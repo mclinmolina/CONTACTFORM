@@ -1,150 +1,196 @@
-
-<template>
-  <div class="bg-background-light dark:bg-background-dark min-h-screen">
-    <!-- HERO SECTION -->
-    <section class="relative h-80 flex items-center justify-center text-center overflow-hidden">
-      <img
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS1Tc0dkam4XP-wCa2UgEF2BGUcafMaCGkc5BPF2TFLFEW52wp73SLJoHb4fTAi_1XJsb2a6vZD6KGZoh4y4wi1QwtQUn8Utc8w_U-2hKe5CTGVqz4E5tYVLkXBMQy5EzyOn8n1vLCpg7hUOD_C2mP03hvFlZexK4YPxnM7WgyVvIL9OlmA4jTdnhtKDGo7fYlGXGm8f406EumE7rKtI8kiB4fo7uXL4hLDrdUvh5AYSAQMSeqGiyAAfZjuhu2wY7wJXmIITVYY3gY"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-black/60"/>
-      <div class="relative z-10 px-4">
-        <h1 class="text-white text-4xl md:text-6xl font-black mb-4">
-          Contact Us
-        </h1>
-        <div class="h-1.5 w-32 bg-primary-600 mx-auto rounded-full"/>
-        <p class="text-white/80 text-lg max-w-2xl mx-auto">
-          Have a project in mind or need expert advice? Reach out to our team of professionals.
-        </p>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="max-w-6xl mx-auto px-4 py-16 -mt-10 relative z-10">
-      <!-- Two Column Layout -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Left Column: Contact Info Card -->
-        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden h-fit">
-          <div class="bg-gray-100 px-8 py-6 text-center">
-            <h2 class="text-2xl font-bold text-black">Contact Information</h2>
-            <p class="text-black/80 text-sm mt-1">Reach us through any of these channels</p>
-          </div>
-          
-          <div class="p-8 space-y-8">
-            <!-- Address -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg mb-1 text-black">Office Address</h3>
-                <p class="text-gray-600 text-sm">
-                  Suite 405, Engineering Plaza,<br/>
-                  Central District, Business Hub 1234
-                </p>
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">call</span>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg mb-1 text-black">Phone Number</h3>
-                <p class="text-gray-600 text-sm">
-                  +1 (555) 123-4567<br/>
-                  +1 (555) 987-6543
-                </p>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">mail</span>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg mb-1 text-black">Email Address</h3>
-                <p class="text-gray-600 text-sm">
-                  info@hdlandsurveying.com<br/>
-                  support@hdlandsurveying.com
-                </p>
-              </div>
-            </div>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - HD Land Surveying</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              600: '#2563eb',
+              900: '#1e40af',
+            },
+            background: {
+              light: '#f9fafb',
+              dark: '#111827',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="bg-background-light min-h-screen">
+      <!-- HERO SECTION -->
+      <section class="relative h-80 flex items-center justify-center text-center overflow-hidden">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS1Tc0dkam4XP-wCa2UgEF2BGUcafMaCGkc5BPF2TFLFEW52wp73SLJoHb4fTAi_1XJsb2a6vZD6KGZoh4y4wi1QwtQUn8Utc8w_U-2hKe5CTGVqz4E5tYVLkXBMQy5EzyOn8n1vLCpg7hUOD_C2mP03hvFlZexK4YPxnM7WgyVvIL9OlmA4jTdnhtKDGo7fYlGXGm8f406EumE7rKtI8kiB4fo7uXL4hLDrdUvh5AYSAQMSeqGiyAAfZjuhu2wY7wJXmIITVYY3gY"
+          class="absolute inset-0 w-full h-full object-cover"
+          alt="Hero background"
+        />
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 px-4">
+          <h1 class="text-white text-4xl md:text-6xl font-black mb-4">
+            Contact Us
+          </h1>
+          <div class="h-1.5 w-32 bg-blue-600 mx-auto rounded-full"></div>
+          <p class="text-white/80 text-lg max-w-2xl mx-auto mt-4">
+            Have a project in mind or need expert advice? Reach out to our team of professionals.
+          </p>
         </div>
+      </section>
 
-        <!-- Right Column: Contact Form -->
-        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          <div class="bg-gray-100 px-8 py-6 text-center">
-            <h2 class="text-2xl font-bold text-black">Send us a Message</h2>
-            <p class="text-black/80 text-sm mt-1">Fill out the form below and we'll get back to you</p>
-          </div>
+      <!-- CONTACT SECTION -->
+      <section class="max-w-6xl mx-auto px-4 py-16 -mt-10 relative z-10">
+        <!-- Two Column Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="p-8">
-            <form action="https://formsubmit.co/pitsdragon211@gmail.com" method="POST" class="space-y-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Full Name -->
+          <!-- Left Column: Contact Info Card -->
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden h-fit">
+            <div class="bg-gray-100 px-8 py-6 text-center">
+              <h2 class="text-2xl font-bold text-black">Contact Information</h2>
+              <p class="text-black/80 text-sm mt-1">Reach us through any of these channels</p>
+            </div>
+            
+            <div class="p-8 space-y-8">
+              <!-- Address -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-blue-600 text-2xl">location_on</span>
+                </div>
                 <div>
-                  <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Full Name</label>
+                  <h3 class="font-bold text-lg mb-1 text-black">Office Address</h3>
+                  <p class="text-gray-600 text-sm">
+                    Suite 405, Engineering Plaza,<br/>
+                    Central District, Business Hub 1234
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-blue-600 text-2xl">call</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg mb-1 text-black">Phone Number</h3>
+                  <p class="text-gray-600 text-sm">
+                    +1 (555) 123-4567<br/>
+                    +1 (555) 987-6543
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-blue-600 text-2xl">mail</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg mb-1 text-black">Email Address</h3>
+                  <p class="text-gray-600 text-sm">
+                    info@hdlandsurveying.com<br/>
+                    support@hdlandsurveying.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Contact Form -->
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div class="bg-gray-100 px-8 py-6 text-center">
+              <h2 class="text-2xl font-bold text-black">Send us a Message</h2>
+              <p class="text-black/80 text-sm mt-1">Fill out the form below and we'll get back to you</p>
+            </div>
+            
+            <div class="p-8">
+              <form action="https://formsubmit.co/pitsdragon211@gmail.com" method="POST" class="space-y-6">
+                <!-- Hidden inputs for FormSubmit -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <!-- Full Name -->
+                  <div>
+                    <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Full Name</label>
+                    <input 
+                      class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
+                      name="full-name" 
+                      placeholder="John Doe" 
+                      type="text"
+                      required
+                    />
+                  </div>
+                  <!-- Email -->
+                  <div>
+                    <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Email Address</label>
+                    <input 
+                      class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
+                      name="email" 
+                      placeholder="john@example.com" 
+                      type="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <!-- Subject -->
+                <div>
+                  <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Subject</label>
                   <input 
-                    class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg"
-                    name="full-name" 
-                    placeholder="John Doe" 
+                    class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
+                    name="subject" 
+                    placeholder="Project Inquiry" 
                     type="text"
                     required
                   />
                 </div>
-                <!-- Email -->
+                <!-- Message -->
                 <div>
-                  <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2" for="email">Email Address</label>
-                  <input 
-                    class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg"
-                    name="email" 
-                    placeholder="john@example.com" 
-                    type="email"
+                  <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Message</label>
+                  <textarea 
+                    class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
+                    name="message" 
+                    placeholder="How can we help you?" 
+                    rows="5"
                     required
-                  />
+                  ></textarea>
                 </div>
-              </div>
-              <!-- Subject -->
-              <div>
-                <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Subject</label>
-                <input 
-                  class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg"
-                  name="subject" 
-                  placeholder="Project Inquiry" 
-                  type="text"
-                  required
-                />
-              </div>
-              <!-- Message -->
-              <div>
-                <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Message</label>
-                <textarea 
-                  class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-primary focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
-                  name="message" 
-                  placeholder="How can we help you?" 
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              
-              <!-- Submit Button -->
-              <button 
-                :disabled="isSubmitting"
-                class="w-full bg-primary text-white py-4 px-8 font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed rounded-lg flex items-center justify-center gap-2"
-                type="submit"
-              >
-                <span>Send Message</span>
-              </button>
-            </form>
+                
+                <!-- Submit Button -->
+                <button 
+                  class="w-full bg-blue-600 text-white py-4 px-8 font-bold uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg rounded-lg flex items-center justify-center gap-2"
+                  type="submit"
+                >
+                  <span>Send Message</span>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</template>
+</body>
+</html>
 
