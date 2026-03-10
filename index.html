@@ -124,11 +124,12 @@
             </div>
             
             <div class="p-8">
-              <form action="https://formsubmit.co/fc4d0a2ed529d423cfaf284b0c58adf3" method="POST" class="space-y-6">
+              <form id="contactForm" action="https://formsubmit.co/fc4d0a2ed529d423cfaf284b0c58adf3" method="POST" class="space-y-6">
                 <!-- Hidden inputs for FormSubmit -->
                 <input type="hidden" name="_subject" value="New Contact Form Submission">
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <!-- Full Name -->
@@ -136,7 +137,8 @@
                     <label class="block text-sm font-bold text-black uppercase tracking-wider mb-2">Full Name</label>
                     <input 
                       class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
-                      name="full-name" 
+                      name="Name"
+                      id="name" 
                       placeholder="John Doe" 
                       type="text"
                       required
@@ -148,6 +150,7 @@
                     <input 
                       class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
                       name="email" 
+                      id="email"
                       placeholder="john@example.com" 
                       type="email"
                       required
@@ -160,6 +163,7 @@
                   <input 
                     class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 focus:border-blue-600 focus:bg-white focus:ring-0 transition-colors placeholder-gray-400 rounded-lg text-black"
                     name="subject" 
+                    id="subject"
                     placeholder="Project Inquiry" 
                     type="text"
                     required
@@ -181,6 +185,7 @@
                 <button 
                   class="w-full bg-blue-600 text-white py-4 px-8 font-bold uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg rounded-lg flex items-center justify-center gap-2"
                   type="submit"
+                  id="submitBtn"
                 >
                   <span>Send Message</span>
                 </button>
@@ -191,6 +196,108 @@
       </section>
     </div>
   </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeModal()"></div>
+    <!-- Modal Content -->
+    <div class="flex items-center justify-center min-h-screen px-4">
+      <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
+        <!-- Success Icon -->
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <span class="material-symbols-outlined text-green-600 text-5xl">check_circle</span>
+        </div>
+        <!-- Title -->
+        <h3 class="text-2xl font-bold text-black mb-2">Message Sent Successfully!</h3>
+        <!-- Description -->
+        <p class="text-gray-600 mb-6">
+          Thank you for reaching out. We've received your message and will get back to you as soon as possible.
+        </p>
+        <!-- Close Button -->
+        <button 
+          onclick="closeModal()"
+          class="w-full bg-blue-600 text-white py-3 px-6 font-bold uppercase tracking-wider hover:bg-blue-700 transition-all rounded-lg"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Change button to loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="flex items-center gap-2"><svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...</span>';
+      
+      // Submit form using fetch
+      fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Show success modal
+          showModal();
+          // Reset form
+          document.getElementById('contactForm').reset();
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+      }).finally(() => {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      });
+    });
+
+    // Show modal with animation
+    function showModal() {
+      const modal = document.getElementById('successModal');
+      const modalContent = document.getElementById('modalContent');
+      
+      modal.classList.remove('hidden');
+      
+      // Trigger animation
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    // Close modal with animation
+    function closeModal() {
+      const modal = document.getElementById('successModal');
+      const modalContent = document.getElementById('modalContent');
+      
+      // Trigger animation out
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
 
